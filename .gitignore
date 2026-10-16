@@ -1,6 +1,37 @@
+# Environment variables and local credentials (at any depth)
 .env
 .env.*
 !.env.example
+.envrc
+secrets/
+.secrets/
+credentials/
+credentials.json
+credentials.*.json
+service-account*.json
+service_account*.json
+*.credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
+.pypirc
+
+# Supabase local state and secret exports
+.supabase/
+supabase/.temp/
+supabase/.branches/
+supabase/secrets.env
+supabase/.env*
+
+# Local configuration overrides; tracked public/config.js contains no secrets
+*.local.json
+*.local.toml
+
+# Generated files and dependencies
 dist/
 node_modules/
-.supabase/
+*.log
+.DS_Store
