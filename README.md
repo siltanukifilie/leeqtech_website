@@ -37,3 +37,17 @@ Enquiries are visible to the owner through the Supabase Table Editor. This versi
 ## GitHub handoff
 
 The source is maintained at https://github.com/siltanukifilie/leeqtech_website. Run locally with `npm run dev`. Supabase hosts the backend; a static website host serves the frontend.
+
+## Cloudflare Workers static hosting
+
+The existing Cloudflare project is named `leeqtech-website` and uses Workers Builds.
+`wrangler.jsonc` tells its deploy command to publish the generated `dist/` directory.
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: repository root (`/`)
+- Production branch: `main`
+
+Use a new build of the latest commit after configuration changes. The domain can be
+connected through the Cloudflare project's Domains settings after deployment succeeds.
+No database credentials belong in the Cloudflare build variables or static assets.

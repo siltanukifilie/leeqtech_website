@@ -35,3 +35,8 @@ dist/
 node_modules/
 *.log
 .DS_Store
+
+# Cloudflare local state and secrets
+.wrangler/
+.dev.vars
+.dev.vars.*
