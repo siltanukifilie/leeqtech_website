@@ -1,5 +1,5 @@
--- Bootstrap specification. Apply only to the selected LeeqTech project.
--- Once that project is selected, generate a tracked migration with the Supabase CLI.
+-- Applied to LeeqTech (gbzjapigsmkzofjsibib) through the
+-- create_leeqtech_enquiries migration. Reference schema; do not reapply.
 create table public.leeqtech_enquiries (
  id uuid primary key default gen_random_uuid(),
  created_at timestamptz not null default now(),
