@@ -12,7 +12,7 @@ let widget;
 if(config.contactEndpoint && config.turnstileSiteKey) {
  window.onTurnstileReady = () => {widget=window.turnstile.render('#captcha',{sitekey:config.turnstileSiteKey,theme:'dark'});};
  const script=document.createElement('script'); script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileReady&render=explicit'; script.async=true;script.onerror=()=>{status.textContent='Verification could not load. Please check your connection and reload.';};document.head.append(script);
-} else {status.textContent='Enquiries are not available yet. The contact service is being connected.';}
+} else {status.textContent='Enquiries will open soon.';}
 form.addEventListener('submit',async e=>{
  e.preventDefault();
  if(!config.contactEndpoint || !config.turnstileSiteKey){status.textContent='Your enquiry has not been sent. The contact service is not connected yet.';return;}
