@@ -27,3 +27,25 @@ form.addEventListener('submit',async e=>{
  } catch {status.textContent='We could not confirm delivery. Please try again later. Your message is still here.';}
  finally{button.disabled=false;window.turnstile?.reset(widget);}
 });
+
+// Small, user-controlled visual demonstrations; no fabricated live metrics.
+const pathways={
+ automation:['A new request','Capture information once.','A smarter workflow','Route, organise and connect.','Your team, in sync','Less repetition. More focus.','From disconnected tasks to a connected way of working.'],
+ data:['Your data sources','Bring scattered data together.','A dependable pipeline','Clean, transform and organise.','A clearer picture','Insights ready for decisions.','Turn separate sources into a useful, shared view.'],
+ ai:['Your team’s knowledge','Start with trusted information.','An intelligent assistant','Find, summarise and explain.','Answers in context','Help people move forward.','Connect people to the knowledge they need, when they need it.']
+};
+const fields=['pipe-input','pipe-input-copy','pipe-engine','pipe-engine-copy','pipe-output','pipe-output-copy','demo-caption'];
+document.querySelectorAll('[data-pathway]').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('[data-pathway]').forEach(b=>{const active=b===button;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
+ fields.forEach((id,i)=>document.getElementById(id).textContent=pathways[button.dataset.pathway][i]);
+}));
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionButton=document.querySelector('.motion-toggle');
+function setMotion(paused){document.body.classList.toggle('motion-paused',paused);motionButton.setAttribute('aria-pressed',String(paused));motionButton.setAttribute('aria-label',paused?'Resume animations':'Pause animations');motionButton.innerHTML=paused?'▶ <span>Resume motion</span>':'Ⅱ <span>Pause motion</span>';document.querySelectorAll('.scene-lines').forEach(svg=>paused?svg.pauseAnimations():svg.unpauseAnimations());}
+motionButton.addEventListener('click',()=>setMotion(!document.body.classList.contains('motion-paused')));
+setMotion(reducedMotion.matches);
+reducedMotion.addEventListener('change',e=>setMotion(e.matches));
+if(!reducedMotion.matches && 'IntersectionObserver' in window){
+ const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:0.08});
+ document.querySelectorAll('.service,.demo-shell,.training,.about-grid').forEach(el=>{el.classList.add('reveal-ready');observer.observe(el);});
+}
