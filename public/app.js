@@ -52,7 +52,7 @@ if(!reducedMotion.matches && 'IntersectionObserver' in window){
 
 // Readers choose the photo story; there is no automatic carousel.
 const stories={
- people:{image:'ethiopian-collaboration.png',alt:'AI-generated Ethiopian technology professionals collaborating on a laptop',kicker:'01 / CONNECT PEOPLE',title:'Great ideas start with people.'},
+ people:{image:'rwandan-technology-team.png',alt:'AI-generated Rwandan technology professionals collaborating on software and data',kicker:'01 / CONNECT PEOPLE',title:'Bright ideas. African possibilities.'},
  build:{image:'ethiopian-engineers.png',alt:'AI-generated Ethiopian software engineers reviewing code together',kicker:'02 / BUILD WHAT MATTERS',title:'Turn possibility into progress.'},
  learn:{image:'ethiopian-workshop.png',alt:'AI-generated Ethiopian technology expert leading a practical workshop',kicker:'03 / GROW TOGETHER',title:'Skills for your next chapter.'}
 };
