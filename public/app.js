@@ -65,3 +65,12 @@ document.querySelectorAll('[data-story]').forEach(button=>button.addEventListene
  document.querySelector('#photo-title').textContent=story.title;
  document.querySelectorAll('[data-story]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
 }));
+
+// Product enquiries select a valid form option and preserve any existing message.
+document.querySelectorAll('[data-product]').forEach(link=>link.addEventListener('click',()=>{
+ const product=link.dataset.product;
+ const service=form.querySelector('select[name="service"]');
+ service.value='Not sure yet';
+ const message=form.querySelector('textarea[name="message"]');
+ if(!message.value.trim())message.value=`I would like to learn more about ${product}.`;
+}));
