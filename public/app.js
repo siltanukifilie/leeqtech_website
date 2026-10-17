@@ -52,9 +52,9 @@ if(!reducedMotion.matches && 'IntersectionObserver' in window){
 
 // Readers choose the photo story; there is no automatic carousel.
 const stories={
- people:{image:'african-collaboration.jpg',alt:'African professionals sharing ideas around an office table',kicker:'01 / CONNECT PEOPLE',title:'Great ideas start with people.'},
- build:{image:'lagos-coding.jpg',alt:'Two developers collaborating on laptops at a coding workspace in Lagos',kicker:'02 / BUILD WHAT MATTERS',title:'Turn possibility into progress.'},
- learn:{image:'workshop.jpg',alt:'A professional explaining ideas on a whiteboard during an office workshop',kicker:'03 / GROW TOGETHER',title:'Skills for your next chapter.'}
+ people:{image:'ethiopian-collaboration.png',alt:'AI-generated Ethiopian technology professionals collaborating on a laptop',kicker:'01 / CONNECT PEOPLE',title:'Great ideas start with people.'},
+ build:{image:'ethiopian-engineers.png',alt:'AI-generated Ethiopian software engineers reviewing code together',kicker:'02 / BUILD WHAT MATTERS',title:'Turn possibility into progress.'},
+ learn:{image:'ethiopian-workshop.png',alt:'AI-generated Ethiopian technology expert leading a practical workshop',kicker:'03 / GROW TOGETHER',title:'Skills for your next chapter.'}
 };
 document.querySelectorAll('[data-story]').forEach(button=>button.addEventListener('click',()=>{
  const story=stories[button.dataset.story];
