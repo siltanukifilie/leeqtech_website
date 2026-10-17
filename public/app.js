@@ -49,3 +49,19 @@ if(!reducedMotion.matches && 'IntersectionObserver' in window){
  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:0.08});
  document.querySelectorAll('.service,.demo-shell,.training,.about-grid').forEach(el=>{el.classList.add('reveal-ready');observer.observe(el);});
 }
+
+// Readers choose the photo story; there is no automatic carousel.
+const stories={
+ people:{image:'african-collaboration.jpg',alt:'African professionals sharing ideas around an office table',kicker:'01 / CONNECT PEOPLE',title:'Great ideas start with people.'},
+ build:{image:'lagos-coding.jpg',alt:'Two developers collaborating on laptops at a coding workspace in Lagos',kicker:'02 / BUILD WHAT MATTERS',title:'Turn possibility into progress.'},
+ learn:{image:'workshop.jpg',alt:'A professional explaining ideas on a whiteboard during an office workshop',kicker:'03 / GROW TOGETHER',title:'Skills for your next chapter.'}
+};
+document.querySelectorAll('[data-story]').forEach(button=>button.addEventListener('click',()=>{
+ const story=stories[button.dataset.story];
+ const photo=document.querySelector('#feature-photo');
+ photo.src=`assets/photos/${story.image}`;photo.alt=story.alt;
+ photo.style.objectPosition=button.dataset.story==='learn'?'center 35%':'center';
+ document.querySelector('#photo-kicker').textContent=story.kicker;
+ document.querySelector('#photo-title').textContent=story.title;
+ document.querySelectorAll('[data-story]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+}));
